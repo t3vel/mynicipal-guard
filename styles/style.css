@@ -1,0 +1,479 @@
+/* Основні стилі */
+:root {
+    --bg-color: #ffffff;
+    --accent-color: #8a898ba1;
+    --text-color: #eaeaea;
+    --font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
+}
+
+
+/* Хедер у звичайному стані */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.8s ease;
+}
+
+/* Зменшений хедер */
+.header.shrink {
+    padding: 5px 20px;
+    background: rgba(0, 0, 0, 1);
+    transition: all 0.8s ease;
+    font-size: 0.7rem;
+}
+
+/* Додаткові стилі для елементів усередині хедера */
+.header.shrink .logo__img {
+    width: 70px;
+    transition: all 0.5s ease;
+    /* Зменшуємо логотип */
+}
+
+.header.shrink .nav-menu a {
+    font-size: 0.7rem;
+    transition: all 0.8s ease;
+    /* Зменшуємо шрифт навігації */
+}
+
+.header.shrink .theme-toggle {
+    font-size: 0.7rem;
+    transition: all 0.8s ease;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+/* Основні стилі для лінії під активним пунктом меню */
+.nav-menu a {
+    position: relative;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    /* Розташування лінії під пунктом меню */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+/* Стиль для активного пункту меню */
+.nav-menu a.active::after {
+    transform: scaleX(1);
+}
+
+.nav-menu a:hover {
+    cursor: pointer;
+}
+
+/* За замовчуванням смужка під "Головна" */
+.nav-menu a:first-child.active::after {
+    transform: scaleX(1);
+}
+
+
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.phone {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.phone:hover {
+    color: var(--accent-color);
+}
+
+/* Hero блок */
+.hero {
+    height: 100vh;
+    background: url("/images/jumbotron1.png") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    color: white;
+    z-index: 1;
+}
+
+.title__hero {
+    font-size: 3.5rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+}
+
+.hero .btn__info {
+    padding: 10px 20px;
+    background: transparent;
+    /* Прозорий фон */
+    border: 2px solid white;
+    /* Білий бордер */
+    color: white;
+    /* Білий текст */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    /* Для плавності ефектів */
+}
+
+.hero .btn__info:hover {
+    background: white;
+    /* При ховері - білий фон */
+    color: black;
+    /* Чорний текст для контрасту */
+    transform: scale(1.05);
+    /* Легке збільшення при наведенні */
+}
+
+
+/* Блок "Про нас" */
+.full-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    background: var(--bg-color);
+    color: #000000;
+    text-align: center;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.about-description {
+    text-align: justify;
+    /* Вирівнює текст за шириною */
+    max-width: 800px;
+    /* Встановлює максимальну ширину блоку */
+    margin: 0 auto;
+    /* Центрує блок на сторінці */
+    padding: 0 20px;
+    /* Відступи всередині блоку */
+    line-height: 1.6;
+    /* Оптимальний міжрядковий інтервал */
+    font-size: 1.2rem;
+
+}
+
+.counters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 40px;
+    position: relative;
+    /* Для того, щоб псевдоелементи розташовувалися відносно цього контейнера */
+}
+
+.counters::before,
+.counters::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+}
+
+/* Горизонтальна лінія */
+.counters::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+
+/* Вертикальна лінія */
+.counters::after {
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 2px;
+}
+
+/* Стилі для елементів */
+.counters>* {
+    flex: 1 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+}
+
+
+
+
+
+
+.counter {
+    padding: 20px;
+    border-radius: 5px;
+
+}
+
+
+.counter .number {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #21223f;
+    display: block;
+}
+
+.counter p {
+    margin-top: 10px;
+    font-size: 1.3rem;
+    color: #21223f;
+}
+
+.about {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.about h2 {
+    margin-bottom: 20px;
+}
+
+
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.about-item {
+    background: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.about-item:hover {
+    transform: translateY(-10px);
+}
+
+.about-item i {
+    font-size: 3rem;
+    color: var(--accent-color);
+}
+
+.about-item h3 {
+    margin: 15px 0;
+}
+
+.logo__img {
+    border-radius: 50%;
+    width: 100px;
+}
+
+.accordion {
+    margin-top: 40px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #444;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+
+.accordion-header {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #303038;
+    color: var(--text-color);
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    /* Додано для правильного позиціювання стрілки */
+}
+
+.accordion-header:hover {
+    background-color: #303038d4;
+}
+
+.accordion-content {
+    font-size: 1.05rem;
+    text-align: left;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 20px;
+    background-color: #303038f5;
+    color: var(--text-color);
+}
+
+/* Стрілка */
+.accordion-header::after {
+    content: '\2193';
+    /* Юнікод для стрілки вниз */
+    position: absolute;
+    /* Виправлено позиціювання */
+    right: 50px;
+    bottom: -15px;
+    /* Місце для розташування стрілки */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 26px;
+    transition: transform 0.3s ease;
+}
+
+/* Коли елемент відкритий, змінюємо напрямок стрілки */
+.accordion-item.open .accordion-header::after {
+    transform: translateY(-50%) rotate(180deg);
+    /* Поворот на 180 градусів */
+}
+
+.accordion-content p,
+ul {
+    padding: 20px 5px;
+}
+
+.accordion-content li {
+    padding: 5px;
+}
+
+/* СЕРВІСИ */
+.services {
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.services h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    color: #000000;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Дозволяє карткам переходити на наступний рядок */
+    justify-content: space-between;
+    /* Розподіляє картки рівномірно */
+    padding: 0 20px;
+}
+
+.service-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    flex-basis: 30%;
+    /* Кожна картка займає 30% ширини */
+    margin-bottom: 30px;
+    /* Відступи між картками */
+    transition: transform 0.5s ease;
+    /* Тільки для трансформацій */
+}
+
+.service-card:hover {
+    transform: scale(1.1);
+    /* Масштабування */
+}
+
+.service-card i {
+    font-size: 40px;
+    color: #04041b;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.service-card p {
+    font-size: 1em;
+    color: #000000;
+}

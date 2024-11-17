@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Муніципальна Варта Білої Церкви</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <header class="header">
+            <div class="header__container">
+                <img class="logo__img" src="images/logo.jpg" alt="Логотип">
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#main">Головна</a></li>
+                        <li><a href="#about">Про нас</a></li>
+                        <li><a href="#services">Послуги</a></li>
+                        <li><a href="#contacts">Контакти</a></li>
+                        <li><a href="#documentasion">Документація</a></li>
+                    </ul>
+                </nav>
+                <div class="header-right">
+                    <a href="tel:0963050002" class="phone"><i class="fas fa-phone-alt"></i> +38 096 305 0002</a>
+                    <button class="theme-toggle" id="themeToggle"><i class="fas fa-adjust"></i></button>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Головний блок -->
+        <section id="main" class="hero">
+            <div class="hero-content">
+                <h1 class="title__hero">Муніципальна Варта Білої Церкви</h1>
+                <p>Ваш порядок, безпека та надійність у місті!</p>
+                <a href="#about" class="btn__info">Дізнатися більше</a>
+            </div>
+        </section>
+
+        <section id="about" class="about full-screen">
+            <div class="container">
+                <h2 class="about-title">Про нас</h2>
+                <p class="about-description">
+                    Комунальне підприємство Білоцерківської міської ради «Муніципальна варта» створено у грудні 2017
+                    року на підставі рішення Білоцерківської міської ради № 1779-42-VII з метою профілактики
+                    правопорушень, охорони фізичних та юридичних осіб, забезпечення охорони громадського порядку на
+                    території міста Біла Церква, надання допомоги мешканцям міста в межах своєї компетенції.
+                </p>
+
+                <!-- Лічильники -->
+                <div class="counters">
+                    <div class="counter">
+                        <span class="number" data-target="24">0</span>
+                        <p>Цілодобова охорона</p>
+                    </div>
+                    <div class="counter">
+                        <span class="number" data-target="7">0</span>
+                        <p>Років працюємо для вас</p>
+                    </div>
+                    <div class="counter">
+                        <span class="number" data-target="10253">0</span>
+                        <p>Клієнтів нам довірились</p>
+                    </div>
+                    <div class="counter">
+                        <span class="number" data-target="2064">0</span>
+                        <p>Об'єктів під охороною</p>
+                    </div>
+                </div>
+
+                <!-- Акордеон з лаконічними питаннями та відповідями -->
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">Що таке Муніципальна Варта?</button>
+                        <div class="accordion-content">
+                            <p>Комунальне підприємство для забезпечення порядку і безпеки на території Білої Церкви.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">Основні напрямки роботи?</button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Охорона громадського порядку</li>
+                                <li>Захист правопорядку разом з поліцією</li>
+                                <li>Надання допомоги громадянам</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">Які послуги надає Муніципальна Варта?</button>
+                        <div class="accordion-content">
+                            <p>Охорона об'єктів, патрулювання, встановлення відеоспостереження та сигналізацій.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">Як зв'язатися з вами?</button>
+                        <div class="accordion-content">
+                            <p>Зателефонуйте за номером +38 096 305 0002 або заповніть форму на сайті.</p>
+                        </div>
+                    </div>
+                    <!-- Додаткові акордеони -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">Чи надаєте ви допомогу при надзвичайних ситуаціях?</button>
+                        <div class="accordion-content">
+                            <p>Так, ми надаємо допомогу в разі надзвичайних ситуацій та підтримуємо місцеву поліцію.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">Як ви забезпечуєте безпеку в місті?</button>
+                        <div class="accordion-content">
+                            <p>Патрулюємо міські території, здійснюємо контроль за об'єктами і проводимо моніторинг
+                                через відеоспостереження.</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Наші Послуги</h2>
+                <div class="services-container">
+                    <!-- Картка 1 -->
+                    <div class="service-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Охорона громадського порядку</h3>
+                        <p>Забезпечення безпеки на території міста, охорона публічного порядку.</p>
+                    </div>
+                    <!-- Картка 2 -->
+                    <div class="service-card">
+                        <i class="fas fa-building"></i>
+                        <h3>Охорона об'єктів та майна</h3>
+                        <p>Контроль за станом безпеки об'єктів, майновою безпекою та охорона важливих об'єктів.
+                        </p>
+                    </div>
+                    <!-- Картка 3 -->
+                    <div class="service-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Охорона фізичних та юридичних осіб</h3>
+                        <p>Захист фізичних та юридичних осіб (суб'єктів) в межах міста та за його межами.</p>
+                    </div>
+                    <!-- Картка 4 -->
+                    <div class="service-card">
+                        <i class="fas fa-video"></i>
+                        <h3>Встановлення та обслуговування відеоспостереження</h3>
+                        <p>Проектування та обслуговування систем відеоспостереження для підвищення безпеки.</p>
+                    </div>
+                    <!-- Картка 5 -->
+                    <div class="service-card">
+                        <i class="fas fa-bell"></i>
+                        <h3>Охоронна та тривожна сигналізація</h3>
+                        <p>Монтаж та технічне обслуговування охоронних та тривожних сигналізацій для об'єктів.
+                        </p>
+                    </div>
+                    <!-- Картка 6 -->
+                    <div class="service-card">
+                        <i class="fas fa-car"></i>
+                        <h3>Централізоване спостереження та реагування</h3>
+                        <p>Забезпечення централізованого спостереження та реагування за допомогою транспорту
+                            реагування.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакти -->
+        <section id="contacts" class="contacts">
+            <div class="container">
+                <h2>Контакти</h2>
+                <div class="contacts-info">
+                    <p><i class="fas fa-map-marker-alt"></i> вул. А. Шептицького, 2, Біла Церква</p>
+                    <p><i class="fas fa-phone"></i> 096 305 0002</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2024 Муніципальна Варта Білої Церкви. Усі права захищені.</p>
+        </footer>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
