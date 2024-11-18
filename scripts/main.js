@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll(".number");
 
-    const runCounter = (counter) => {
+    const runCounter = (counter, isFirstCounter) => {
         const updateCount = () => {
             const target = +counter.dataset.target;
             const current = +counter.innerText;
@@ -128,16 +128,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 setTimeout(updateCount, 80);
             } else {
                 counter.innerText = target;
+                if (isFirstCounter) {
+                    counter.innerText += "/7"; // Додаємо " / 7" тільки до першого лічильника
+                }
             }
         };
         updateCount();
     };
 
     const handleScroll = () => {
-        counters.forEach(counter => {
+        counters.forEach((counter, index) => {
             const rect = counter.getBoundingClientRect();
             if (rect.top < window.innerHeight && rect.bottom > 0) {
-                runCounter(counter);
+                // Передаємо true для першого лічильника (index === 0)
+                runCounter(counter, index === 0);
             }
         });
     };
@@ -145,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", handleScroll);
     handleScroll(); // Run initially in case already in view
 });
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -177,3 +182,59 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// Отримуємо елементи
+const modal = document.getElementById('modal');
+const closeButton = document.querySelector('.close-btn');
+const orderButtons = document.querySelectorAll('.service__btn');
+
+// Функція для закриття модалки
+function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';  // Включаємо скролл
+}
+
+// Відкриття модального вікна
+orderButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';  // Вимикаємо скролл
+    });
+});
+
+// Закриття при кліку на кнопку .close-btn
+closeButton.addEventListener('click', closeModal);
+
+// Закриття при кліку за межами модального вікна
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+// Ініціалізація EmailJS
+emailjs.init("QoI8sNp-WAyZtfvjl");
+
+// Обробка події "submit" форми
+const form = document.getElementById('orderForm');
+
+form.addEventListener('submit', (event) => {
+    // Забороняємо перезавантаження сторінки
+    event.preventDefault();
+
+    // Отримуємо значення полів форми
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+
+    emailjs.send("service_qhahqzx", "template_qo7bt6d", {
+        name: name, // Змінна з форми
+        phone: phone, // Змінна з форми
+    })
+        .then(response => {
+            console.log("Успіх!", response.status, response.text);
+            alert("Повідомлення успішно надіслано!");
+        })
+        .catch(error => {
+            console.error("Помилка при відправленні:", error);
+            alert("Помилка при відправленні. Спробуйте ще раз.");
+        });
+});

@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.8/inputmask.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+
+
 </head>
 
 <body>
@@ -113,6 +118,7 @@
                         <div class="accordion-content">
                             <p>Патрулюємо міські території, здійснюємо контроль за об'єктами і проводимо моніторинг
                                 через відеоспостереження.</p>
+
                         </div>
                     </div>
                 </div>
@@ -127,6 +133,7 @@
                         <i class="fas fa-shield-alt"></i>
                         <h3>Охорона громадського порядку</h3>
                         <p>Забезпечення безпеки на території міста, охорона публічного порядку.</p>
+                        <button class="service__btn">Замовити</button>
                     </div>
                     <!-- Картка 2 -->
                     <div class="service-card">
@@ -134,18 +141,21 @@
                         <h3>Охорона об'єктів та майна</h3>
                         <p>Контроль за станом безпеки об'єктів, майновою безпекою та охорона важливих об'єктів.
                         </p>
+                        <button class="service__btn">Замовити</button>
                     </div>
                     <!-- Картка 3 -->
                     <div class="service-card">
                         <i class="fas fa-users"></i>
                         <h3>Охорона фізичних та юридичних осіб</h3>
                         <p>Захист фізичних та юридичних осіб (суб'єктів) в межах міста та за його межами.</p>
+                        <button class="service__btn">Замовити</button>
                     </div>
                     <!-- Картка 4 -->
                     <div class="service-card">
                         <i class="fas fa-video"></i>
                         <h3>Встановлення та обслуговування відеоспостереження</h3>
                         <p>Проектування та обслуговування систем відеоспостереження для підвищення безпеки.</p>
+                        <button class="service__btn">Замовити</button>
                     </div>
                     <!-- Картка 5 -->
                     <div class="service-card">
@@ -153,6 +163,7 @@
                         <h3>Охоронна та тривожна сигналізація</h3>
                         <p>Монтаж та технічне обслуговування охоронних та тривожних сигналізацій для об'єктів.
                         </p>
+                        <button class="service__btn">Замовити</button>
                     </div>
                     <!-- Картка 6 -->
                     <div class="service-card">
@@ -160,10 +171,28 @@
                         <h3>Централізоване спостереження та реагування</h3>
                         <p>Забезпечення централізованого спостереження та реагування за допомогою транспорту
                             реагування.</p>
+                        <button class="service__btn">Замовити</button>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Модальне вікно -->
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+
+                <h2>Замовлення послуги</h2>
+                <form id="orderForm">
+                    <span class=" close-btn">&times;</span>
+                    <input type="text" id="name" name="name" placeholder="Введіть ваше ім'я" required>
+                    <input type="tel" id="phone" name="phone" placeholder="+38 (___) ___-__-__" required>
+                    <button type="submit" class="submit-btn">Відправити</button>
+                </form>
+            </div>
+        </div>
+
+
+
 
         <!-- Контакти -->
         <section id="contacts" class="contacts">

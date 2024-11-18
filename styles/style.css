@@ -438,10 +438,18 @@ ul {
     /* Дозволяє карткам переходити на наступний рядок */
     justify-content: space-between;
     /* Розподіляє картки рівномірно */
+    gap: 20px;
+    /* Відстань між картками */
     padding: 0 20px;
 }
 
 .service-card {
+    display: flex;
+    flex-direction: column;
+    /* Робить елементи вертикально орієнтованими */
+    justify-content: space-between;
+    /* Розподіл елементів у картці */
+    align-items: center;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -449,11 +457,8 @@ ul {
     text-align: center;
     transition: transform 0.3s ease;
     flex-basis: 30%;
-    /* Кожна картка займає 30% ширини */
+    /* Кожна картка займає приблизно 30% ширини */
     margin-bottom: 30px;
-    /* Відступи між картками */
-    transition: transform 0.5s ease;
-    /* Тільки для трансформацій */
 }
 
 .service-card:hover {
@@ -474,6 +479,114 @@ ul {
 }
 
 .service-card p {
-    font-size: 1em;
+    font-size: 1rem;
     color: #000000;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Кнопка внизу картки */
+.service__btn {
+    margin-top: auto;
+    /* Автоматично відсувається вниз */
+    padding: 10px 20px;
+    background-color: #222425;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.service__btn:hover {
+    background-color: #333333;
+}
+
+
+/* Модальне вікно */
+.modal {
+    display: none;
+    /* Приховане за замовчуванням */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #000000;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #21223f;
+}
+
+.modal-content label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.submit-btn {
+    background-color: #222425;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #333333;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    /* Відстань від верхнього краю */
+    right: 10px;
+    /* Відстань від правого краю */
+    font-size: 30px;
+    /* Збільшити розмір шрифта для кнопки */
+    color: #000000;
+    cursor: pointer;
+    background: none;
+    /* Зробити фон прозорим */
+    border: none;
+    /* Забрати рамку */
 }
