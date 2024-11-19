@@ -154,7 +154,7 @@ body {
 /* Hero блок */
 .hero {
     height: 100vh;
-    background: url("images/jumbotron1.png") center/cover no-repeat;
+    background: url("../images/jumbotron1.png") center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
