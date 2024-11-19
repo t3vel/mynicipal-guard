@@ -118,37 +118,50 @@ document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll(".number");
 
     const runCounter = (counter, isFirstCounter) => {
+        const target = +counter.dataset.target;
+        let current = 0;
+
+        // Позначаємо, що анімація виконується
+        counter.setAttribute("data-running", "true");
+
         const updateCount = () => {
-            const target = +counter.dataset.target;
-            const current = +counter.innerText;
-            const increment = target / 100;
+            const increment = target / 200; // Менший приріст для плавності
 
             if (current < target) {
-                counter.innerText = Math.ceil(current + increment);
-                setTimeout(updateCount, 80);
+                current += increment;
+                counter.innerText = Math.ceil(current);
+                requestAnimationFrame(updateCount);
             } else {
                 counter.innerText = target;
                 if (isFirstCounter) {
                     counter.innerText += "/7"; // Додаємо " / 7" тільки до першого лічильника
                 }
+                counter.setAttribute("data-completed", "true"); // Позначаємо завершення
+                counter.removeAttribute("data-running"); // Знімаємо прапорець виконання
             }
         };
+
         updateCount();
     };
 
     const handleScroll = () => {
         counters.forEach((counter, index) => {
             const rect = counter.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                // Передаємо true для першого лічильника (index === 0)
+            const isCompleted = counter.getAttribute("data-completed") === "true";
+            const isRunning = counter.getAttribute("data-running") === "true";
+
+            if (!isCompleted && !isRunning && rect.top < window.innerHeight && rect.bottom > 0) {
                 runCounter(counter, index === 0);
             }
         });
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Run initially in case already in view
+    handleScroll(); // Запуск при завантаженні сторінки
 });
+
+
+
 
 
 
@@ -168,6 +181,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     otherContent.style.maxHeight = null;
                 }
             });
+
+            // Якщо анімація все ще триває, повертаємо нічого
+            if (content.style.maxHeight && content.style.maxHeight !== "0px" && !item.classList.contains("open")) {
+                return;
+            }
 
             // Перемикання активного елемента
             if (item.classList.contains("open")) {
@@ -238,3 +256,30 @@ form.addEventListener('submit', (event) => {
             alert("Помилка при відправленні. Спробуйте ще раз.");
         });
 });
+
+
+let currentIndex = 0; // Текущий индекс слайда
+const items = document.querySelectorAll('.carousel-item'); // Всі елементи каруселі
+const totalItems = items.length; // Загальна кількість елементів
+
+// Функція для перемикання слайдів
+function showSlide(index) {
+    if (index >= totalItems) {
+        currentIndex = 0;
+    } else if (index < 0) {
+        currentIndex = totalItems - 1;
+    } else {
+        currentIndex = index;
+    }
+
+    // Зміна позиції каруселі
+    const offset = -currentIndex * 100 / totalItems;
+    document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
+}
+
+// Обробники для кнопок
+document.querySelector('.prev').addEventListener('click', () => showSlide(currentIndex - 1));
+document.querySelector('.next').addEventListener('click', () => showSlide(currentIndex + 1));
+
+// Початковий показ слайду
+showSlide(currentIndex);

@@ -1,10 +1,15 @@
 /* Основні стилі */
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --bg-color: #ffffff;
     --accent-color: #8a898ba1;
     --text-color: #eaeaea;
     --font-family: 'Roboto', sans-serif;
 }
+
 
 body {
     margin: 0;
@@ -217,20 +222,24 @@ body {
     color: #000000;
 }
 
-.about-description {
+.about-description,
+.about-expanded {
     text-align: justify;
-    /* Вирівнює текст за шириною */
-    max-width: 800px;
-    /* Встановлює максимальну ширину блоку */
+    max-width: 1200px;
     margin: 0 auto;
-    /* Центрує блок на сторінці */
     padding: 0 20px;
-    /* Відступи всередині блоку */
     line-height: 1.6;
-    /* Оптимальний міжрядковий інтервал */
     font-size: 1.2rem;
-
 }
+
+.about-expanded {
+    margin-top: 15px;
+    color: #000000;
+    /* Трохи темніший колір для відокремлення */
+}
+
+
+
 
 .counters {
     display: flex;
@@ -271,17 +280,11 @@ body {
     max-width: calc(50% - 10px);
 }
 
-
-
-
-
-
 .counter {
     padding: 20px;
     border-radius: 5px;
 
 }
-
 
 .counter .number {
     font-size: 3.5rem;
@@ -305,8 +308,6 @@ body {
     margin-bottom: 20px;
 }
 
-
-
 .about-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -318,7 +319,7 @@ body {
     background: #000000;
     padding: 20px;
     border-radius: 10px;
-    transition: transform 0.5s ease;
+
 }
 
 .about-item:hover {
@@ -426,6 +427,7 @@ ul {
 }
 
 .services h2 {
+    margin-top: 20px;
     text-align: center;
     margin-bottom: 30px;
     font-size: 2.5em;
@@ -589,4 +591,138 @@ ul {
     /* Зробити фон прозорим */
     border: none;
     /* Забрати рамку */
+}
+
+
+/* ГАЛЕРЕЯ */
+.gallery {
+    padding: 40px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.gallery h2 {
+    color: #000000;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+/* Контейнер для галереї */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Стиль для кожного елементу */
+.carousel-item {
+    width: calc(25% - 20px);
+    height: 225px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ефект при наведенні на картинку */
+.carousel-item:hover {
+    transform: scale(1.05);
+    /* Збільшення зображення */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    /* Посилення тіні */
+}
+
+/* Шторка на зображенні */
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    /* Початковий висотний стан */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Колір шторки */
+    transition: height 0.5s ease, opacity 0.5s ease;
+    /* Анімація на висоту та прозорість */
+    opacity: 0;
+    /* Початково шторка прозора */
+}
+
+/* Анімація шторки при наведенні */
+.carousel-item:hover::before {
+    height: 100%;
+    /* Повна висота шторки при наведенні */
+    opacity: 1;
+    /* Шторка стає непрозорою */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-item:hover img {
+    opacity: 0.4;
+    /* Знижена яскравість зображення при наведенні */
+}
+
+/* Контакти */
+.contacts {
+    background-color: #303038;
+    color: #ffffff;
+    padding: 20px 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.contacts-info {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contacts-info p {
+    margin: 15px 0;
+    font-size: 1rem;
+
+}
+
+.contacts-info i {
+    margin-right: 10px;
+}
+
+.contacts-info a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contacts-info a:hover {
+    color: #f0a500;
+}
+
+.contacts-social {
+    margin-bottom: 15px;
+}
+
+.contacts-social a {
+    margin: 0 10px;
+    color: #ffffff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.contacts-social a:hover {
+    color: #f0a500;
+}
+
+.footer-copy {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    margin-top: 15px;
 }
