@@ -11,6 +11,10 @@ const form = document.getElementById("orderForm");
 const carouselItems = document.querySelectorAll(".carousel-item");
 const totalCarouselItems = carouselItems.length;
 let currentIndex = 0;
+AOS.init({
+    duration: 800, // Тривалість анімації в мс
+    once: true,    // Анімація відбувається лише раз
+});
 
 // ========================= Тема сайту =========================
 document.getElementById("themeToggle").addEventListener("click", () => {
@@ -89,20 +93,15 @@ window.addEventListener("scroll", () => {
 const runCounter = (counter, isFirstCounter) => {
     const target = +counter.dataset.target;
     let current = 0;
-
-    counter.setAttribute("data-running", "true");
+    const increment = Math.ceil(target / 125); // Кількість збільшення за один крок
 
     const updateCount = () => {
-        const increment = target / 300;
-
         if (current < target) {
             current += increment;
-            counter.innerText = Math.ceil(current);
-            requestAnimationFrame(updateCount);
+            counter.innerText = current > target ? target : current; // Уникаємо перевищення
+            setTimeout(updateCount, 25); // Інтервал оновлення
         } else {
-            counter.innerText = target + (isFirstCounter ? "/7" : "");
-            counter.setAttribute("data-completed", "true");
-            counter.removeAttribute("data-running");
+            counter.innerText = target + (isFirstCounter ? "/7" : ""); // Додаємо "/7" лише для першого лічильника
         }
     };
 
@@ -112,17 +111,16 @@ const runCounter = (counter, isFirstCounter) => {
 const handleScroll = () => {
     counters.forEach((counter, index) => {
         const rect = counter.getBoundingClientRect();
-        const isCompleted = counter.getAttribute("data-completed") === "true";
-        const isRunning = counter.getAttribute("data-running") === "true";
-
-        if (!isCompleted && !isRunning && rect.top < window.innerHeight && rect.bottom > 0) {
+        if (rect.top < window.innerHeight && rect.bottom > 0 && !counter.classList.contains("animated")) {
+            counter.classList.add("animated"); // Відзначаємо, що цей лічильник вже анімовано
             runCounter(counter, index === 0);
         }
     });
 };
 
+// Слухаємо подію прокручування
 window.addEventListener("scroll", handleScroll);
-handleScroll();
+handleScroll(); // Викликаємо спочатку, щоб перевірити видимість елементів на початку
 
 // ========================= Аккордеон =========================
 accordionHeaders.forEach(header => {
@@ -148,6 +146,7 @@ accordionHeaders.forEach(header => {
 });
 
 // ========================= Модальне вікно =========================
+
 const closeModal = () => {
     modal.style.display = "none";
     document.body.style.overflow = "auto";
@@ -182,13 +181,4 @@ form.addEventListener("submit", (event) => {
         });
 });
 
-// ========================= Карусель =========================
-const showSlide = (index) => {
-    currentIndex = (index + totalCarouselItems) % totalCarouselItems;
-    const offset = -currentIndex * 100 / totalCarouselItems;
-    document.querySelector(".carousel").style.transform = `translateX(${offset}%)`;
-};
 
-document.querySelector(".prev").addEventListener("click", () => showSlide(currentIndex - 1));
-document.querySelector(".next").addEventListener("click", () => showSlide(currentIndex + 1));
-showSlide(currentIndex); // Початковий слайд
