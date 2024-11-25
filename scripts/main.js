@@ -163,22 +163,20 @@ window.addEventListener("click", (event) => {
     if (event.target === modal) closeModal();
 });
 
-// ========================= EmailJS =========================
-emailjs.init("QoI8sNp-WAyZtfvjl");
+// ========================= Email Sender =========================
+const modalContent = document.querySelector(".modal-content");
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
+form.addEventListener("submit", async (event) => {
 
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
 
-    emailjs.send("service_qhahqzx", "template_qo7bt6d", { name, phone })
-        .then(response => {
-            alert("Повідомлення успішно надіслано!");
-        })
-        .catch(error => {
-            alert("Помилка при відправленні. Спробуйте ще раз.");
-        });
+    const response = await fetch("https://formsubmit.co/715c7bde9536781cca252090120ddd80@gmail.com", {
+        method: "POST",
+        body: new FormData(form)
+    });
+
+
 });
+
+
 
 

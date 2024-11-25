@@ -248,16 +248,20 @@
     <!-- Модальне вікно -->
     <div id="modal" class="modal hidden">
         <div class="modal-content">
-
             <h2>Замовлення послуги</h2>
-            <form id="orderForm" autocomplete="off">
-                <span class=" close-btn">&times;</span>
+            <form id="orderForm" action="https://formsubmit.co/715c7bde9536781cca252090120ddd80" method="POST"
+                autocomplete="off">
+                <span class="close-btn">&times;</span>
                 <input type="text" id="name" name="name" placeholder="Введіть ваше ім'я" required>
                 <input type="tel" id="phone" name="phone" placeholder="+38 (___) ___-__-__" required>
+                <!-- Захист від спаму -->
+                <input type="hidden" name="_captcha" value="false">
                 <button type="submit" class="submit-btn">Відправити</button>
             </form>
         </div>
     </div>
+
+
 
 
 
