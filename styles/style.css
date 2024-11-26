@@ -1,15 +1,20 @@
-/* Основні стилі */
-* {
+і* {
     box-sizing: border-box;
 }
 
 :root {
     --bg-color: #ffffff;
     --accent-color: #8a898ba1;
-    --text-color: #eaeaea;
+    --text-color: #000000;
+    --bef-aft-color: #000000a1;
     --font-family: 'Roboto', sans-serif;
 }
 
+.dark-theme {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --bef-aft-color: #8a898ba1;
+}
 
 body {
     margin: 0;
@@ -28,7 +33,7 @@ body {
     background: none;
     border: none;
     font-size: 1.2rem;
-    color: var(--text-color);
+    color: #FFFFFF;
     cursor: pointer;
     transition: color 0.3s ease;
 }
@@ -64,13 +69,11 @@ body {
 .header.shrink .logo__img {
     width: 70px;
     transition: all 0.5s ease;
-    /* Зменшуємо логотип */
 }
 
 .header.shrink .nav-menu a {
     font-size: 0.7rem;
     transition: all 0.8s ease;
-    /* Зменшуємо шрифт навігації */
 }
 
 .header.shrink .theme-toggle {
@@ -99,7 +102,7 @@ body {
 .nav-menu a {
     position: relative;
     text-decoration: none;
-    color: var(--text-color);
+    color: #FFFFFF;
     padding: 5px 10px;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
@@ -109,7 +112,6 @@ body {
     content: '';
     position: absolute;
     bottom: -5px;
-    /* Розташування лінії під пунктом меню */
     left: 0;
     width: 100%;
     height: 3px;
@@ -118,7 +120,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Стиль для активного пункту меню */
+
 .nav-menu a.active::after {
     transform: scaleX(1);
 }
@@ -181,27 +183,19 @@ body {
 .hero .btn__info {
     padding: 10px 20px;
     background: transparent;
-    /* Прозорий фон */
     border: 2px solid white;
-    /* Білий бордер */
     color: white;
-    /* Білий текст */
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
     transition: all 0.3s ease;
-    /* Для плавності ефектів */
 }
 
 .hero .btn__info:hover {
     background: white;
-    /* При ховері - білий фон */
     color: black;
-    /* Чорний текст для контрасту */
     transform: scale(1.05);
-    /* Легке збільшення при наведенні */
 }
-
 
 /* Блок "Про нас" */
 .full-screen {
@@ -218,7 +212,7 @@ body {
 .about-title {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #000000;
+    color: var(--text-color)
 }
 
 .about-content {
@@ -229,17 +223,16 @@ body {
 
 .about-video {
     float: right;
-    /* Відео обтікається текстом справа */
     width: 50%;
     min-height: 330px;
     margin: 0 0 20px 20px;
-    /* Відступи навколо відео */
 }
 
 .about-description {
     text-align: justify;
     line-height: 1.6;
     font-size: 1.2rem;
+    color: var(--text-color)
 }
 
 
@@ -251,10 +244,6 @@ body {
     }
 }
 
-
-
-
-
 .counters {
     display: flex;
     flex-wrap: wrap;
@@ -262,14 +251,13 @@ body {
     gap: 20px;
     margin-top: 40px;
     position: relative;
-    /* Для того, щоб псевдоелементи розташовувалися відносно цього контейнера */
 }
 
 .counters::before,
 .counters::after {
     content: "";
     position: absolute;
-    background-color: black;
+    background-color: var(--bef-aft-color);
 }
 
 /* Горизонтальна лінія */
@@ -288,7 +276,7 @@ body {
     width: 2px;
 }
 
-/* Стилі для елементів */
+
 .counters>* {
     flex: 1 1 calc(50% - 10px);
     max-width: calc(50% - 10px);
@@ -303,24 +291,19 @@ body {
 .counter .number {
     font-size: 3.5rem;
     font-weight: bold;
-    color: #21223f;
     display: block;
+    color: var(--text-color)
 }
 
 .number {
     opacity: 0;
-    /* Початково невидимі */
     transform: translateY(20px);
-    /* Зсув вниз */
     transition: opacity 0.5s ease, transform 0.5s ease;
-    /* Плавність змін */
 }
 
 .number.animated {
     opacity: 1;
-    /* Повна видимість */
     transform: translateY(0);
-    /* Повертаємо на місце */
 }
 
 
@@ -328,7 +311,7 @@ body {
 .counter p {
     margin-top: 10px;
     font-size: 1.3rem;
-    color: #21223f;
+    color: var(--text-color);
 }
 
 .about {
@@ -338,6 +321,7 @@ body {
 
 .about h2 {
     margin-bottom: 20px;
+    color: var(--text-color);
 }
 
 .about-grid {
@@ -392,7 +376,7 @@ body {
     width: 100%;
     padding: 15px 20px;
     background-color: #303038;
-    color: var(--text-color);
+    color: #FFFFFF;
     text-align: left;
     font-size: 1.2rem;
     font-weight: bold;
@@ -404,7 +388,6 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    /* Додано для правильного позиціювання стрілки */
 }
 
 .accordion-header:hover {
@@ -419,7 +402,7 @@ body {
     transition: max-height 0.3s ease, padding 0.3s ease;
     padding: 0 20px;
     background-color: #303038f5;
-    color: var(--text-color);
+    color: #FFFFFF;
 }
 
 .accordion-content ol {
@@ -431,10 +414,8 @@ body {
     content: '\2193';
     /* Юнікод для стрілки вниз */
     position: absolute;
-    /* Виправлено позиціювання */
     right: 50px;
     bottom: -15px;
-    /* Місце для розташування стрілки */
     top: 50%;
     transform: translateY(-50%);
     font-size: 26px;
@@ -459,7 +440,7 @@ ul {
 /* СЕРВІСИ */
 .services {
     padding: 50px 0;
-    background-color: #ffffff;
+    background-color: var(--bg-color);
 }
 
 .services h2 {
@@ -467,7 +448,7 @@ ul {
     text-align: center;
     margin-bottom: 30px;
     font-size: 2.5em;
-    color: #000000;
+    color: var(--text-color);
 }
 
 .services-container {
@@ -484,9 +465,7 @@ ul {
 .service-card {
     display: flex;
     flex-direction: column;
-    /* Робить елементи вертикально орієнтованими */
     justify-content: space-between;
-    /* Розподіл елементів у картці */
     align-items: center;
     background-color: white;
     padding: 20px;
@@ -495,13 +474,11 @@ ul {
     text-align: center;
     transition: transform 0.3s ease;
     flex-basis: 30%;
-    /* Кожна картка займає приблизно 30% ширини */
     margin-bottom: 30px;
 }
 
 .service-card:hover {
     transform: scale(1.1);
-    /* Масштабування */
 }
 
 .service-card i {
@@ -526,7 +503,6 @@ ul {
 /* Кнопка внизу картки */
 .service__btn {
     margin-top: auto;
-    /* Автоматично відсувається вниз */
     padding: 10px 20px;
     background-color: #222425;
     color: #fff;
@@ -545,7 +521,6 @@ ul {
 /* Модальне вікно */
 .modal {
     display: none;
-    /* Приховане за замовчуванням */
     position: fixed;
     top: 0;
     left: 0;
@@ -616,17 +591,12 @@ ul {
 .close-btn {
     position: absolute;
     top: 5px;
-    /* Відстань від верхнього краю */
     right: 10px;
-    /* Відстань від правого краю */
     font-size: 30px;
-    /* Збільшити розмір шрифта для кнопки */
     color: #000000;
     cursor: pointer;
     background: none;
-    /* Зробити фон прозорим */
     border: none;
-    /* Забрати рамку */
 }
 
 
@@ -635,10 +605,11 @@ ul {
     padding: 40px;
     background-color: #ffffff;
     text-align: center;
+    background-color: var(--bg-color);
 }
 
 .gallery h2 {
-    color: #000000;
+    color: var(--text-color);
     margin-bottom: 20px;
     font-size: 2.5rem;
 }
@@ -647,12 +618,12 @@ ul {
 .gallery-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
 }
 
-/* Стиль для кожного елементу */
-.carousel-item {
+
+.gallery-item {
     width: calc(25% - 20px);
     height: 225px;
     border-radius: 10px;
@@ -662,40 +633,31 @@ ul {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Ефект при наведенні на картинку */
-.carousel-item:hover {
+
+.gallery-item:hover {
     transform: scale(1.05);
-    /* Збільшення зображення */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    /* Посилення тіні */
 }
 
 /* Шторка на зображенні */
-.carousel-item::before {
+.gallery-item::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 0;
-    /* Початковий висотний стан */
     background-color: rgba(0, 0, 0, 0.7);
-    /* Колір шторки */
     transition: height 0.5s ease, opacity 0.5s ease;
-    /* Анімація на висоту та прозорість */
     opacity: 0;
-    /* Початково шторка прозора */
 }
 
-/* Анімація шторки при наведенні */
-.carousel-item:hover::before {
+.gallery-item:hover::before {
     height: 100%;
-    /* Повна висота шторки при наведенні */
     opacity: 1;
-    /* Шторка стає непрозорою */
 }
 
-.carousel-item img {
+.gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -703,32 +665,25 @@ ul {
     transition: opacity 0.3s ease;
 }
 
-.carousel-item:hover img {
+.gallery-item:hover img {
     opacity: 0.4;
-    /* Знижена яскравість зображення при наведенні */
 }
 
 /* Контакти */
 .contacts-content {
     display: flex;
     justify-content: space-between;
-    /* Розташовує елементи зліва і справа */
     align-items: flex-start;
-    /* Вирівнює елементи по верхньому краю */
     gap: 20px;
-    /* Відступ між блоками */
 }
 
 .contacts-info {
     flex: 1;
-    /* Ліва частина займає одну частину простору */
 }
 
 .contacts-documents {
     flex: 1;
-    /* Права частина займає одну частину простору */
     text-align: right;
-    /* Вирівнювання тексту по лівому краю */
     margin-top: 4%;
     color: #FFFFFF;
 }
@@ -746,11 +701,8 @@ ul {
 
 .contacts-documents ul li a {
     color: #FFFFFF;
-
     text-decoration: none;
 }
-
-
 
 .contacts {
 

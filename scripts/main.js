@@ -19,11 +19,7 @@ AOS.init({
 // ========================= Тема сайту =========================
 document.getElementById("themeToggle").addEventListener("click", () => {
     const root = document.documentElement;
-    const currentBg = root.style.getPropertyValue("--bg-color");
-
-    root.style.setProperty("--bg-color", currentBg === "#ffffff" ? "#121212" : "#ffffff");
-    root.style.setProperty("--text-color", currentBg === "#ffffff" ? "#eaeaea" : "#333333");
-    root.style.setProperty("--header-bg", currentBg === "#ffffff" ? "rgba(18, 18, 18, 0.9)" : "rgba(255, 255, 255, 0.9)");
+    root.classList.toggle("dark-theme");
 });
 
 // ========================= Анімація секцій =========================
@@ -63,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         },
-        { threshold: 0.5 } // Активуємо пункт меню, якщо видно 50% розділу
+        { threshold: 0.3 }
     );
 
     // Спостереження за секціями
