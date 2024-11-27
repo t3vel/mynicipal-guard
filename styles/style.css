@@ -217,7 +217,6 @@ body {
 
 .about-content {
     display: block;
-
     margin: 0 auto;
 }
 
@@ -236,13 +235,7 @@ body {
 }
 
 
-@media (max-width: 768px) {
-    .about-video {
-        float: none;
-        margin: 0 auto 20px;
-        display: block;
-    }
-}
+
 
 .counters {
     display: flex;
@@ -818,9 +811,6 @@ ul {
     }
 
     .header {
-        background: rgba(0, 0, 0, 0.95);
-        /* Менш прозорий фон */
-        /* Або використовуйте загальну прозорість */
         position: fixed;
         top: 0;
         left: 0;
@@ -851,7 +841,67 @@ ul {
     .theme-toggle {
         display: none;
     }
+
+    .about-content {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        /* Ширина для мобільних пристроїв */
+        padding-top: 56.25%;
+        /* Співвідношення сторін 16:9 */
+        margin: 0 auto;
+
+    }
+
+    .about-video {
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .counters .number {
+        font-size: 2rem;
+        /* Зменшений розмір цифр для мобільних */
+    }
+
+    .counters p {
+        font-size: 1.2rem;
+        /* Зменшений розмір тексту опису */
+    }
+
+    .accordion .accordion-header {
+        font-size: 1.2rem;
+        /* Зменшення розміру заголовка */
+    }
+
+    .services-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .service-card {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+    .gallery-item {
+        width: calc(50% - 10px);
+        height: auto;
+    }
 }
+
+
+
+
+
+
+
+
 
 /* Додаткові медіа-запити для мобільних пристроїв */
 @media (max-width: 480px) {
@@ -883,5 +933,24 @@ ul {
 
     .contacts-info p {
         font-size: 1rem;
+    }
+
+    .gallery-item {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .contacts-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contacts-info {
+        text-align: center;
+    }
+
+    .contacts-documents {
+        display: none;
     }
 }

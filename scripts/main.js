@@ -163,15 +163,12 @@ window.addEventListener("click", (event) => {
 const modalContent = document.querySelector(".modal-content");
 
 form.addEventListener("submit", async (event) => {
-
-
     const response = await fetch("https://formsubmit.co/715c7bde9536781cca252090120ddd80@gmail.com", {
         method: "POST",
         body: new FormData(form)
     });
-
-
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const burgerMenu = document.getElementById("burgerMenu");
