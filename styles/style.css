@@ -225,6 +225,7 @@ body {
     width: 50%;
     min-height: 330px;
     margin: 0 0 20px 20px;
+    border: none;
 }
 
 .about-description {
@@ -404,10 +405,10 @@ body {
 
 /* Стрілка */
 .accordion-header::after {
-    content: '\1F83B';
+    content: '\2193';
     /* Юнікод для стрілки вниз */
     position: absolute;
-    right: 20px;
+    right: 50px;
     bottom: -15px;
     top: 50%;
     transform: translateY(-50%);
@@ -619,7 +620,7 @@ ul {
 .gallery-item {
     width: calc(25% - 20px);
     height: 225px;
-    border-radius: 10px;
+    border-radius: 2px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
@@ -654,7 +655,6 @@ ul {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
     transition: opacity 0.3s ease;
 }
 
@@ -754,17 +754,26 @@ ul {
 
 /* Базові стилі для бургер-меню */
 .burger-menu {
-    display: none;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: white;
     cursor: pointer;
+    position: relative;
+
 }
 
-.nav-menu-wrapper {
-    display: flex;
-    justify-content: flex-end;
+/* Іконка бургер-меню */
+.burger-menu i {
+    transition: transform 0.4s ease, color 0.3s ease;
+}
+
+/* Стилі для активного стану бургер-меню */
+.burger-menu.active i {
+    transform: rotate(90deg);
+    /* Поворот іконки */
+    color: #f84525;
+    /* Зміна кольору іконки */
 }
 
 /* Адаптація для планшетів та смартфонів */
@@ -879,6 +888,14 @@ ul {
         /* Зменшення розміру заголовка */
     }
 
+    .accordion p {
+        font-size: 0.85rem;
+    }
+
+    .accordion ol {
+        font-size: 0.85rem;
+    }
+
     .services-container {
         flex-direction: column;
         gap: 20px;
@@ -889,31 +906,8 @@ ul {
         max-width: 100%;
     }
 
-    .gallery-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 10px;
-    }
-
-    .gallery-item {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-    }
-
-    .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 0px;
-        /* Забезпечує обрізання зображення по контейнеру */
-    }
-
-    .gallery-item:last-child {
-        grid-column: 1 / -1;
-        /* Останнє зображення займає весь ряд */
-        justify-self: center;
-        /* Вирівнювання по центру */
+    .accordion-header::after {
+        right: 20px;
     }
 }
 
@@ -922,6 +916,17 @@ ul {
 
 /* Додаткові медіа-запити для мобільних пристроїв */
 @media (max-width: 480px) {
+    h2 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .about,
+    .services,
+    .gallery {
+        padding: 20px;
+    }
+
     .hero-content h1 {
         font-size: 1.8rem;
         /* Менший шрифт для заголовка */
@@ -961,4 +966,20 @@ ul {
         display: none;
     }
 
+    .about-description {
+        line-height: 1.8;
+        /* Трохи збільшуємо міжрядковий інтервал */
+        text-align: left;
+        /* Звичайне вирівнювання для вузьких екранів */
+        font-size: 0.9rem;
+    }
+
+    .gallery-item {
+        flex: 1 1 100%;
+        /* 1 фото в ряд */
+    }
+
+    .gallery-item {
+        border-radius: 0;
+    }
 }

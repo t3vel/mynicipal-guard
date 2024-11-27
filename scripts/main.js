@@ -196,3 +196,21 @@ window.addEventListener("scroll", () => {
         header.classList.remove("shrink");
     }
 });
+
+const burgerMenu = document.getElementById('burgerMenu');
+const navMenu = document.querySelector('.nav-menu');
+
+// Додаємо/видаляємо клас активного бургер-меню при кліку
+burgerMenu.addEventListener('click', () => {
+    burgerMenu.classList.toggle('active'); // Поворот іконки бургера
+    navMenu.classList.toggle('active'); // Показати або приховати меню
+});
+
+// Закриття меню при натисканні на пункт меню
+menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+        burgerMenu.classList.remove('active'); // Повернути бургер в початковий стан
+        navMenu.classList.remove('active'); // Сховати меню
+    });
+});
+
