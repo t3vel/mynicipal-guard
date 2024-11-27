@@ -173,6 +173,29 @@ form.addEventListener("submit", async (event) => {
 
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const burgerMenu = document.getElementById("burgerMenu");
+    const navMenuWrapper = document.querySelector(".nav-menu-wrapper");
+
+    burgerMenu.addEventListener("click", () => {
+        navMenuWrapper.classList.toggle("active");
+    });
+
+    // Закриваємо меню після кліку на посилання
+    navMenuWrapper.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") {
+            navMenuWrapper.classList.remove("active");
+        }
+    });
+});
 
 
 
+window.addEventListener("scroll", () => {
+    const header = document.querySelector(".header");
+    if (window.innerWidth > 768 && window.scrollY > 100) {
+        header.classList.add("shrink");
+    } else {
+        header.classList.remove("shrink");
+    }
+});
