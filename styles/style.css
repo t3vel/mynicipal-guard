@@ -754,6 +754,7 @@ ul {
 
 /* Базові стилі для бургер-меню */
 .burger-menu {
+    display: none;
     background: none;
     border: none;
     font-size: 2rem;
