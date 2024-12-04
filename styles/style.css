@@ -39,7 +39,7 @@ body {
 }
 
 .theme-toggle:hover {
-    color: var(--accent-color);
+    color: orange;
 }
 
 
@@ -150,7 +150,7 @@ body {
 }
 
 .phone:hover {
-    color: var(--accent-color);
+    color: orange;
 }
 
 /* Hero блок */
@@ -631,6 +631,7 @@ ul {
 .gallery-item:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 /* Шторка на зображенні */
@@ -769,6 +770,7 @@ ul {
     transition: transform 0.4s ease, color 0.3s ease;
 }
 
+
 /* Стилі для активного стану бургер-меню */
 .burger-menu.active i {
     transform: rotate(90deg);
@@ -876,17 +878,14 @@ ul {
 
     .counters .number {
         font-size: 2rem;
-        /* Зменшений розмір цифр для мобільних */
     }
 
     .counters p {
         font-size: 1.2rem;
-        /* Зменшений розмір тексту опису */
     }
 
     .accordion .accordion-header {
-        font-size: 0.85rem;
-        /* Зменшення розміру заголовка */
+        font-size: 0.95rem;
     }
 
     .accordion p {
@@ -930,12 +929,10 @@ ul {
 
     .hero-content h1 {
         font-size: 1.8rem;
-        /* Менший шрифт для заголовка */
     }
 
     .hero-content p {
         font-size: 1rem;
-        /* Зменшити розмір для абзацу */
     }
 
     .btn__info {
@@ -964,23 +961,60 @@ ul {
     }
 
     .contacts-documents {
-        display: none;
+        display: inline;
+        margin-bottom: 15px;
     }
 
     .about-description {
         line-height: 1.8;
-        /* Трохи збільшуємо міжрядковий інтервал */
         text-align: left;
-        /* Звичайне вирівнювання для вузьких екранів */
         font-size: 0.9rem;
     }
 
     .gallery-item {
         flex: 1 1 100%;
-        /* 1 фото в ряд */
     }
 
     .gallery-item {
         border-radius: 0;
     }
+}
+
+.modal-gallery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal-gallery img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-gallery.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-gallery .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.no-scroll {
+    overflow: hidden;
 }

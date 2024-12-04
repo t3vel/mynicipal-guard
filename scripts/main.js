@@ -169,7 +169,7 @@ form.addEventListener("submit", async (event) => {
     });
 });
 
-
+// ========================= Burger Menu =========================
 document.addEventListener("DOMContentLoaded", () => {
     const burgerMenu = document.getElementById("burgerMenu");
     const navMenuWrapper = document.querySelector(".nav-menu-wrapper");
@@ -214,3 +214,32 @@ menuItems.forEach(item => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const galleryItems = document.querySelectorAll(".gallery-item img");
+    const galleryModal = document.getElementById("fullscreenModal");
+    const modalImage = galleryModal.querySelector(".modal-image");
+    const closeModalBtn = galleryModal.querySelector(".close-btn");
+
+    // Відкриття фото
+    galleryItems.forEach(item => {
+        item.addEventListener("click", () => {
+            modalImage.src = item.src;
+            galleryModal.classList.add("visible");
+            document.body.classList.add('no-scroll'); // Блокуємо прокручування
+        });
+    });
+
+    // Закриття модального вікна
+    closeModalBtn.addEventListener("click", () => {
+        galleryModal.classList.remove("visible");
+        document.body.classList.remove('no-scroll'); // Відновлюємо прокручування
+    });
+
+    // Закриття по кліку поза зображенням
+    galleryModal.addEventListener("click", (e) => {
+        if (e.target === galleryModal) {
+            galleryModal.classList.remove("visible");
+            document.body.classList.remove('no-scroll'); // Відновлюємо прокручування
+        }
+    });
+});
