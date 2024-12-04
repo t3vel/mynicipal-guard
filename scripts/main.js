@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navMenuWrapper.classList.toggle("active");
     });
 
-    // Закриваємо меню після кліку на посилання
+
     navMenuWrapper.addEventListener("click", (e) => {
         if (e.target.tagName === "A") {
             navMenuWrapper.classList.remove("active");
@@ -200,46 +200,48 @@ window.addEventListener("scroll", () => {
 const burgerMenu = document.getElementById('burgerMenu');
 const navMenu = document.querySelector('.nav-menu');
 
-// Додаємо/видаляємо клас активного бургер-меню при кліку
+
 burgerMenu.addEventListener('click', () => {
-    burgerMenu.classList.toggle('active'); // Поворот іконки бургера
-    navMenu.classList.toggle('active'); // Показати або приховати меню
+    burgerMenu.classList.toggle('active');
+    navMenu.classList.toggle('active');
 });
 
-// Закриття меню при натисканні на пункт меню
+
 menuItems.forEach(item => {
     item.addEventListener('click', () => {
-        burgerMenu.classList.remove('active'); // Повернути бургер в початковий стан
-        navMenu.classList.remove('active'); // Сховати меню
+        burgerMenu.classList.remove('active');
+        navMenu.classList.remove('active');
     });
 });
 
+
+// ========================= Відкриття фото з галереї на повний екран =========================
 document.addEventListener("DOMContentLoaded", () => {
     const galleryItems = document.querySelectorAll(".gallery-item img");
     const galleryModal = document.getElementById("fullscreenModal");
     const modalImage = galleryModal.querySelector(".modal-image");
     const closeModalBtn = galleryModal.querySelector(".close-btn");
 
-    // Відкриття фото
+
     galleryItems.forEach(item => {
         item.addEventListener("click", () => {
             modalImage.src = item.src;
             galleryModal.classList.add("visible");
-            document.body.classList.add('no-scroll'); // Блокуємо прокручування
+            document.body.classList.add('no-scroll');
         });
     });
 
-    // Закриття модального вікна
+
     closeModalBtn.addEventListener("click", () => {
         galleryModal.classList.remove("visible");
-        document.body.classList.remove('no-scroll'); // Відновлюємо прокручування
+        document.body.classList.remove('no-scroll');
     });
 
-    // Закриття по кліку поза зображенням
+
     galleryModal.addEventListener("click", (e) => {
         if (e.target === galleryModal) {
             galleryModal.classList.remove("visible");
-            document.body.classList.remove('no-scroll'); // Відновлюємо прокручування
+            document.body.classList.remove('no-scroll');
         }
     });
 });
