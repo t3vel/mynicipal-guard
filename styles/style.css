@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: var(--font-family);
 }
 
 :root {
@@ -7,7 +8,7 @@
     --accent-color: #8a898ba1;
     --text-color: #000000;
     --bef-aft-color: #000000a1;
-    --font-family: 'Roboto', sans-serif;
+    --font-family: "Montserrat", sans-serif;
 }
 
 .dark-theme {
@@ -18,7 +19,6 @@
 
 body {
     margin: 0;
-    font-family: var(--font-family);
     color: var(--text-color);
     background-color: var(--bg-color);
 }
@@ -423,7 +423,7 @@ body {
 }
 
 .accordion-content p,
-ul {
+ol {
     padding: 20px 5px;
 }
 
