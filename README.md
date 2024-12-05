@@ -22,8 +22,8 @@
 - 🌗 **Темна та світла тема** – перемикайте теми одним кліком (в реалізації).   
   🌗 **Dark and Light Theme** – switch themes with a single click (soon...).
 
-- 📱 **Мобільна версія у розробці** – поки що сайт адаптації не має.  
-  📱 **Mobile Version in Development** – currently, the site lacks mobile adaptation.
+- 📱 **Мобільна версія у розробці** – вебсайт повністю адаптований для різних пристроїв.  
+  📱 **Mobile Version in Development** – the website is fully adapted for different devices.
 
 ---
 
@@ -40,9 +40,6 @@
 
 - **Font Awesome** – іконки для покращення UI/UX.  
   **Font Awesome** – icons for enhanced UI/UX.
-
-- **Email.js** – для відправлення форм без серверної частини.  
-  **Email.js** – for sending forms without backend integration.
 
 ---
 
