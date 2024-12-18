@@ -12,8 +12,8 @@ const carouselItems = document.querySelectorAll(".carousel-item");
 const totalCarouselItems = carouselItems.length;
 let currentIndex = 0;
 AOS.init({
-    duration: 800, // Тривалість анімації в мс
-    once: true,    // Анімація відбувається лише раз
+    duration: 800,
+    once: true,
 });
 
 // ========================= Тема сайту =========================
@@ -38,12 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section");
     const menuLinks = document.querySelectorAll(".nav-menu a");
 
-    // Видаляємо клас "active" у всіх пунктах меню
+
     const removeActiveClasses = () => {
         menuLinks.forEach(link => link.classList.remove("active"));
     };
 
-    // Додаємо клас "active" до поточного пункту меню
+
     const activateMenuItem = (id) => {
         removeActiveClasses();
         const activeLink = document.querySelector(`.nav-menu a[href="#${id}"]`);
@@ -89,15 +89,15 @@ window.addEventListener("scroll", () => {
 const runCounter = (counter, isFirstCounter) => {
     const target = +counter.dataset.target;
     let current = 0;
-    const increment = Math.ceil(target / 125); // Кількість збільшення за один крок
+    const increment = Math.ceil(target / 125);
 
     const updateCount = () => {
         if (current < target) {
             current += increment;
-            counter.innerText = current > target ? target : current; // Уникаємо перевищення
-            setTimeout(updateCount, 25); // Інтервал оновлення
+            counter.innerText = current > target ? target : current;
+            setTimeout(updateCount, 25);
         } else {
-            counter.innerText = target + (isFirstCounter ? "/7" : ""); // Додаємо "/7" лише для першого лічильника
+            counter.innerText = target + (isFirstCounter ? "/7" : "");
         }
     };
 
@@ -108,15 +108,15 @@ const handleScroll = () => {
     counters.forEach((counter, index) => {
         const rect = counter.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0 && !counter.classList.contains("animated")) {
-            counter.classList.add("animated"); // Відзначаємо, що цей лічильник вже анімовано
+            counter.classList.add("animated");
             runCounter(counter, index === 0);
         }
     });
 };
 
-// Слухаємо подію прокручування
+
 window.addEventListener("scroll", handleScroll);
-handleScroll(); // Викликаємо спочатку, щоб перевірити видимість елементів на початку
+handleScroll();
 
 // ========================= Аккордеон =========================
 accordionHeaders.forEach(header => {
