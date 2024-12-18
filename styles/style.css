@@ -406,7 +406,6 @@ body {
 /* Стрілка */
 .accordion-header::after {
     content: '\2193';
-    /* Юнікод для стрілки вниз */
     position: absolute;
     right: 50px;
     bottom: -15px;
@@ -416,10 +415,9 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Коли елемент відкритий, змінюємо напрямок стрілки */
+
 .accordion-item.open .accordion-header::after {
     transform: translateY(-50%) rotate(180deg);
-    /* Поворот на 180 градусів */
 }
 
 .accordion-content p,
@@ -675,12 +673,7 @@ ol {
     flex: 1;
 }
 
-.contacts-documents {
-    flex: 1;
-    text-align: right;
-    margin-top: 4%;
-    color: #FFFFFF;
-}
+
 
 
 .contacts-documents ul {
@@ -699,8 +692,8 @@ ol {
 }
 
 .contacts {
-
-    background-color: #303038;
+    border-top: 1px solid #343445;
+    background-color: #161618;
     color: #ffffff;
     padding: 20px 0;
     font-size: 1rem;
@@ -765,18 +758,88 @@ ol {
 
 }
 
-/* Іконка бургер-меню */
+
 .burger-menu i {
     transition: transform 0.4s ease, color 0.3s ease;
 }
 
 
-/* Стилі для активного стану бургер-меню */
+
 .burger-menu.active i {
     transform: rotate(90deg);
-    /* Поворот іконки */
     color: #f84525;
-    /* Зміна кольору іконки */
+}
+
+/* Документи  */
+.documents__title {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 40px;
+}
+
+.documents-slider {
+    padding: 50px;
+    text-align: center;
+    background-color: var(--bg-color);
+}
+
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+    width: 100%;
+    text-align: center;
+    flex-shrink: 0;
+    font-weight: 700;
+}
+
+
+.slider-item a {
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background-color: #f0a500;
+}
+
+.slider-item a:hover {
+    color: #f0a500;
 }
 
 /* Адаптація для планшетів та смартфонів */
@@ -885,11 +948,11 @@ ol {
     }
 
     .accordion .accordion-header {
-        font-size: 0.95rem;
+        font-size: 0.8rem;
     }
 
     .accordion p {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .accordion ol {
@@ -909,6 +972,35 @@ ol {
     .accordion-header::after {
         right: 20px;
     }
+
+    .slider-item a {
+        font-size: 12px;
+        color: var(--text-color);
+
+    }
+
+    .prev-btn,
+    .next-btn {
+        position: absolute;
+        top: 35%;
+        transform: translateY(-50%);
+        background-color: #000;
+        color: white;
+        border: none;
+        padding: 1px;
+        cursor: pointer;
+        z-index: 10;
+        font-size: 14px;
+        overflow: hidden;
+    }
+
+    .prev-btn {
+        left: 0px;
+    }
+
+    .next-btn {
+        right: 0px;
+    }
 }
 
 
@@ -921,13 +1013,30 @@ ol {
         padding: 0;
     }
 
+    .documents-slider {
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .header .logo__img {
+        width: 50px;
+    }
+
+    .phone {
+        font-size: 0.85rem;
+    }
+
     .about,
     .services,
     .gallery {
         padding: 20px;
     }
 
-    .hero-content h1 {
+    .hero-content h1,
+    .documents__title,
+    .gallery h2,
+    .services h2,
+    .about h2 {
         font-size: 1.8rem;
     }
 
