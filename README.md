@@ -3,8 +3,8 @@
 
 ## 🌐 Опис | Description
 
-**[Муніципальна Варта Білої Церкви](https://t3vel.github.io/mynicipal-guard/)** – це сучасний вебсайт для представлення комунального підприємства. Він містить інформацію про послуги, діяльність, контакти та допомагає користувачам дізнатися більше про роботу організації.  
-**[Municipal Guard of Bila Tserkva](https://t3vel.github.io/mynicipal-guard/)** is a modern website for presenting the municipal enterprise. It provides information about services, activities, contacts, and helps users learn more about the organization’s work.
+**[Муніципальна Варта Білої Церкви](vartabc.com.ua)** – це сучасний вебсайт для представлення комунального підприємства. Він містить інформацію про послуги, діяльність, контакти та допомагає користувачам дізнатися більше про роботу організації.  
+**[Municipal Guard of Bila Tserkva](vartabc.com.ua)** is a modern website for presenting the municipal enterprise. It provides information about services, activities, contacts, and helps users learn more about the organization’s work.
 
 ---
 
